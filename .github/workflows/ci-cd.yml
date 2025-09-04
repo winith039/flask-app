@@ -1,11 +1,11 @@
 on:
   push:
-    branch:
+    branches:
       ["master"]
 
 jobs:
   build:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: checkout code
