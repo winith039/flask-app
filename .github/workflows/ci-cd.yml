@@ -58,8 +58,7 @@ jobs:
         run: aws eks update-kubeconfig --region ap-south-1 --name autoscale-flask-eks
 
       - name: Deploy to EKS
-
+ 
         run: |
-          kubectl set image deployment/flask-webapp \ 
-            flask-webapp=winith039/flask-webapp:${{ github.sha }} --record
+          kubectl set image deployment/flask-webapp flask-webapp=winith039/flask-webapp:${{ github.sha }} --record
           kubectl rollout status deployment/flask-webapp
