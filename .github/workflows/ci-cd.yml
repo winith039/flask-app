@@ -40,7 +40,7 @@ jobs:
           push: true
           tags: winith039/flask-app:${{ github.sha }}
   deploy:
-    needs: build_and_push
+    needs: Build & Push
     runs-on: ubuntu-latest
 
     steps:
