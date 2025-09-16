@@ -55,7 +55,7 @@ jobs:
           aws-region: ap-south-1
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --region ap-south-1 --name my-cluster
+        run: aws eks update-kubeconfig --region ap-south-1 --name autoscale-flask-eks
 
       - name: Deploy to EKS
 
