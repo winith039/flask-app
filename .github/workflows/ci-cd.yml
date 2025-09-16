@@ -67,8 +67,8 @@ jobs:
             namespace: kube-system
           data:
             mapRoles: |
-              - rolearn: arn:aws:iam::009160066604:role/AWSReservedSSO_AdministratorAccess_8786e3a41d79c28d
-                username: admin
+              - rolearn: arn:aws:account::009160066604:account
+                username: benimaru
                 groups:
                   - system:masters
           EOF
