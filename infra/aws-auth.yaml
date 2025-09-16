@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapUsers: |
+    - userarn: arn:aws:iam::009160066604:role/AWSReservedSSO_AdministratorAccess_8786e3a41d79c28d/Benimaru
+      username: benimaru
+      groups:
+        - system:masters
+

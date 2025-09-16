@@ -57,6 +57,23 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --region ap-south-1 --name autoscale-flask-eks
 
+      - name: Create aws-auth ConfigMap
+        run: |
+          cat <<EOF > aws-auth.yaml
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: aws-auth
+            namespace: kube-system
+          data:
+            mapRoles: |
+              - rolearn: arn:aws:iam::009160066604:role/AWSReservedSSO_AdministratorAccess_8786e3a41d79c28d
+                username: admin
+                groups:
+                  - system:masters
+          EOF
+          kubectl apply -f aws-auth.yaml
+
       - name: Deploy to EKS
  
         run: |
