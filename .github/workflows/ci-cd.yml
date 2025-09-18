@@ -60,20 +60,5 @@ jobs:
           
           aws eks update-kubeconfig --region ap-south-1 --name autoscale-flask-eks
           
-          cat <<EOF > aws-auth.yaml
-          apiVersion: v1
-          kind: ConfigMap
-          metadata:
-            name: aws-auth
-            namespace: kube-system
-          data:
-            mapRoles: |
-              - rolearn: arn:aws:iam::009160066604:role/GithubActionsEKSDeployRole
-                username: github-actions-runner
-                groups:
-                  - system:masters
-          EOF
-          kubectl apply -f aws-auth.yaml
-
           kubectl set image deployment/flask-webapp flask-webapp=winith039/flask-webapp:${{ github.sha }} --record
           kubectl rollout status deployment/flask-webapp
