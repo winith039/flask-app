@@ -60,6 +60,10 @@ jobs:
         run: |
           
           aws eks update-kubeconfig --region ap-south-1 --name autoscale-flask-eks
+
+      - name: Apply manifests
+        run: |
+
           kubectl apply -f k8s/
 
 
