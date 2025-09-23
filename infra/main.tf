@@ -35,6 +35,7 @@ module "eks" {
 
     enable_irsa = false
 
+
     eks_managed_node_groups = {
 	default = {
 	    instance_types = var.instance_types
@@ -42,7 +43,10 @@ module "eks" {
 	    min_size = 1
 	    max_size = 3
 	}
-   }
+    }
+    
+    enable_cluster_creator_admin_permissions = true
+ 
 
      tags = {
 	Project = var.project_name
