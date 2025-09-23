@@ -67,5 +67,5 @@ jobs:
           kubectl apply -f k8s/
 
 
-          kubectl set image deployment/flask-app flask-app=winith039/flask-app:${{ github.sha }} --record
-          kubectl rollout status deployment/flask-app
+          kubectl set image deployment/flask-app-deployment flask-app=winith039/flask-app:${{ github.sha }} --record
+          kubectl rollout status deployment/flask-app-deployment
