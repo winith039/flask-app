@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load-generator
+spec:
+  containers:
+  - name: load-generator
+    image: curlimages/curl:7.88.1
+    command: ["sh", "-c"]
+    args:
+      - |
+        while true; do
+          curl -s http://flask-app-service:80 > /dev/null;
+        done
+  restartPolicy: Never
+

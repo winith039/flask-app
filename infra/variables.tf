@@ -42,7 +42,7 @@ variable "cluster_version" {
 variable "desired_capacity" {
   description = "Desired node count for the default node group"
   type        = number
-  default     = 2
+  default     = 1
 }
 
 variable "instance_types" {
